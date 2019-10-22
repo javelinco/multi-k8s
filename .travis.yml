@@ -17,7 +17,7 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t mmunson/react-test -f ./client/Dockerfile.dev ./client
 script:
-  - docker run -e CI=true mmunson/docker-react npm run test
+  - docker run -e CI=true mmunson/react-test npm run test
 deploy:
   provider: script
   script: bash ./deploy.sh
